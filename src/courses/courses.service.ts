@@ -27,11 +27,18 @@ export class CoursesService {
     return courses;
   }
 
-  update(id: number, updateCourseDto: UpdateCourseDto) {
-    return `This action updates a #${id} course`;
+  async updateCourseById(id: string, updateCourseDto: UpdateCourseDto) {
+    const updateCourse = await this.courseModel
+      .findByIdAndUpdate(id, updateCourseDto)
+      .exec();
+    if (!updateCourse) {
+      throw new Error('Course not found');
+    }
+    return updateCourse;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} course`;
+  async deleteCourseById(id: string) {
+    const deleteCourse = await this.courseModel.findByIdAndDelete(id);
+    return deleteCourse;
   }
 }
