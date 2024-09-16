@@ -1,6 +1,15 @@
 export class CreateCourseDto {
-  name: string;
+  title: string;
+  description: string;
   author: string;
-  price: string;
+  courseCategory: string;
+  language: 'EN' | 'NP';
   tag: string;
+  rating?: number;
+  purchase: {
+    amount: number;
+    currency: string;
+    priceString: string;
+    currencySymbol: 'NRS' | '$';
+  };
 }

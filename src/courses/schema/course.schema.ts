@@ -3,19 +3,41 @@ import { HydratedDocument } from 'mongoose';
 
 export type CoursesType = HydratedDocument<Courses>;
 
+class Purchase {
+  @Prop()
+  amount: number;
+  @Prop()
+  currency: string;
+  @Prop()
+  priceString: string;
+  @Prop()
+  currencySymbol: 'NRs' | '$';
+}
 @Schema()
 export class Courses {
   @Prop({ required: true })
-  name: string;
+  title: string;
+
+  @Prop({ required: true })
+  description: string;
 
   @Prop({ required: true })
   author: string;
 
   @Prop({ required: true })
-  price: string;
+  courseCategory: string;
+
+  @Prop({ required: true })
+  language: string;
+
+  @Prop({ required: true })
+  tag: string;
 
   @Prop()
-  tag: string;
+  rating: number;
+
+  @Prop({ type: Purchase, required: false })
+  purchase: Purchase;
 }
 
 export const CourseSchema = SchemaFactory.createForClass(Courses);

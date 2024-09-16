@@ -32,15 +32,12 @@ export class CoursesController {
   }
 
   @Patch(':id')
-  update(
-    @Param('id', ParseIntPipe) id: number,
-    @Body() updateCourseDto: UpdateCourseDto,
-  ) {
-    return this.coursesService.update(id, updateCourseDto);
+  update(@Param('id') id: string, @Body() updateCourseDto: UpdateCourseDto) {
+    return this.coursesService.updateCourseById(id, updateCourseDto);
   }
 
   @Delete(':id')
-  remove(@Param('id', ParseIntPipe) id: number) {
-    return this.coursesService.remove(id);
+  remove(@Param('id') id: string) {
+    return this.coursesService.deleteCourseById(id);
   }
 }
