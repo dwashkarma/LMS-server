@@ -21,7 +21,7 @@ import { JwtAuthGuard } from './auth/jwt.guard';
     CoursesModule,
     AuthModule,
   ],
-  controllers: [AppController, UsersController],
+  controllers: [AppController],
   providers: [
     AppService,
     UsersService,
