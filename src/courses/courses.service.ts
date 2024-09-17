@@ -27,6 +27,12 @@ export class CoursesService {
     return courses;
   }
 
+  async getCourseBySubCategory(subCategory: string) {
+    return this.courseModel
+      .find({ subCategory: { $regex: new RegExp(subCategory, 'i') } })
+      .exec();
+  }
+
   async updateCourseById(id: string, updateCourseDto: UpdateCourseDto) {
     const updateCourse = await this.courseModel
       .findByIdAndUpdate(id, updateCourseDto)

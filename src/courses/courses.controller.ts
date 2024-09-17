@@ -31,6 +31,11 @@ export class CoursesController {
     return this.coursesService.getCourseById(id);
   }
 
+  @Get('category/:cat')
+  findByCategory(@Param('cat') cat: string) {
+    return this.coursesService.getCourseBySubCategory(cat);
+  }
+
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateCourseDto: UpdateCourseDto) {
     return this.coursesService.updateCourseById(id, updateCourseDto);

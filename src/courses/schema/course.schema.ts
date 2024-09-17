@@ -28,6 +28,9 @@ export class Courses {
   courseCategory: string;
 
   @Prop({ required: true })
+  subCategory: string;
+
+  @Prop({ required: true })
   language: string;
 
   @Prop({ required: true })
