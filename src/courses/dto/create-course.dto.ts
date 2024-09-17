@@ -3,6 +3,7 @@ export class CreateCourseDto {
   description: string;
   author: string;
   courseCategory: string;
+  subCategory: string;
   language: 'EN' | 'NP';
   tag: string;
   rating?: number;
